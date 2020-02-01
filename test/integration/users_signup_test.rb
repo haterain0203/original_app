@@ -20,7 +20,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password_confirmation: "password" } }
     end
     follow_redirect!
-    asser_template "users/show"
+    assert_template "users/show"
     assert_not flash.empty?
   end
 end
