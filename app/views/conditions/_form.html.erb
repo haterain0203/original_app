@@ -1,0 +1,84 @@
+<div class="container col-md-8 col-md-offset-2">
+  
+  <%= form_with(model: condition, local: true) do |form| %>
+    <% if condition.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(condition.errors.count, "error") %> prohibited this condition from being saved:</h2>
+  
+        <ul>
+        <% condition.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :condition_date %>
+      <%= form.date_select :condition_date %>
+    </div>
+  
+    <div class="field">
+      <%= form.label "食事" %>
+      <% for i in 1..5 %>
+        <label class="btn btn-outline-secondary" style="width:18%">
+          <%= form.radio_button :meal, i %> <%= i %>
+        </label>
+      <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.label "排便" %>
+      <% for i in 1..5 %>
+        <label class="btn btn-outline-secondary" style="width:18%">
+          <%= form.radio_button :defecation, i %> <%= i %>
+        </label>
+      <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.label "睡眠" %>
+      <% for i in 1..5 %>
+        <label class="btn btn-outline-secondary" style="width:18%">
+          <%= form.radio_button :sleep, i %> <%= i %>
+        </label>
+      <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.label "飲酒" %>
+      <% for i in 1..5 %>
+        <label class="btn btn-outline-secondary" style="width:18%">
+          <%= form.radio_button :alcohol, i %> <%= i %>
+        </label>
+      <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.label "運動" %>
+      <% for i in 1..5 %>
+        <label class="btn btn-outline-secondary" style="width:18%">
+          <%= form.radio_button :exercise, i %> <%= i %>
+        </label>
+      <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.label "ストレス" %>
+      <% for i in 1..5 %>
+        <label class="btn btn-outline-secondary" style="width:18%">
+          <%= form.radio_button :stress, i %> <%= i %>
+        </label>
+      <% end %>
+    </div>
+  
+    <div class="field">
+      <%= form.hidden_field :user_id, value:current_user.id %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+</div>

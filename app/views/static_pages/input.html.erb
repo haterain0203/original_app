@@ -2,5 +2,47 @@
 
 <h1>記録入力</h1>
 
+<div class="row form-group">
+<%= form_for Data.new do |f| %>
+  <% arrays = [ "症状", "睡眠", "食事","飲酒", "運動", "排便"] %>
+      <div class="col-md-2 col-xs-2">
+        <%= f.label :, "症状" , {class: 'form-label'} %>
+      </div>
+      <div class="col-md-10 col-xs-10" >
+        <% for i in 1..5 %>
+          <label class="btn btn-outline-secondary" style="width:15%">
+            <%= f.radio_button :name, i %> <%= i %>
+          </label>
+        <% end %>
+      </div>
+            <div class="col-md-2 col-xs-2">
+        <%= f.label @user, "睡眠" , {class: 'form-label'} %>
+      </div>
+      <div class="col-md-10 col-xs-10" >
+        <% for i in 1..5 %>
+          <label class="btn btn-outline-secondary" style="width:15%">
+            <%= f.radio_button :name, i %> <%= i %>
+          </label>
+        <% end %>
+      </div>
+            <div class="col-md-2 col-xs-2">
+        <%= f.label :name, "食事" , {class: 'form-label'} %>
+      </div>
+      <div class="col-md-10 col-xs-10" >
+        <% for i in 1..5 %>
+          <label class="btn btn-outline-secondary" style="width:15%">
+            <%= f.radio_button :name, i %> <%= i %>
+          </label>
+        <% end %>
+      </div>
+      
+    <div class="col-md-offset-3 col-md-6">
+      <%= f.submit "記録", class: "btn btn-lg center btn-warning" %>
+    </div>
+  <% end %>
+</div>
+
+
+
 
 <!--https://techacademy.jp/magazine/22208のコードをコピーしたがエラーにより実現できず-->

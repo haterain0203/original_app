@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Conditions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Condition date</th>
+      <th>Meal</th>
+      <th>Defecation</th>
+      <th>Sleep</th>
+      <th>Alcohol</th>
+      <th>Exercise</th>
+      <th>Stress</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conditions.each do |condition| %>
+      <tr>
+        <td><%= condition.condition_date %></td>
+        <td><%= condition.meal %></td>
+        <td><%= condition.defecation %></td>
+        <td><%= condition.sleep %></td>
+        <td><%= condition.alcohol %></td>
+        <td><%= condition.exercise %></td>
+        <td><%= condition.stress %></td>
+        <td><%= condition.user_id %></td>
+        <td><%= link_to 'Show', condition %></td>
+        <td><%= link_to 'Edit', edit_condition_path(condition) %></td>
+        <td><%= link_to 'Destroy', condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Condition', new_condition_path %>

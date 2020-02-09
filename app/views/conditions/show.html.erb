@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Condition date:</strong>
+  <%= @condition.condition_date %>
+</p>
+
+<p>
+  <strong>Meal:</strong>
+  <%= @condition.meal %>
+</p>
+
+<p>
+  <strong>Defecation:</strong>
+  <%= @condition.defecation %>
+</p>
+
+<p>
+  <strong>Sleep:</strong>
+  <%= @condition.sleep %>
+</p>
+
+<p>
+  <strong>Alcohol:</strong>
+  <%= @condition.alcohol %>
+</p>
+
+<p>
+  <strong>Exercise:</strong>
+  <%= @condition.exercise %>
+</p>
+
+<p>
+  <strong>Stress:</strong>
+  <%= @condition.stress %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @condition.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_condition_path(@condition) %> |
+<%= link_to 'Back', conditions_path %>
