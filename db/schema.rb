@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_051337) do
+ActiveRecord::Schema.define(version: 2020_02_11_042834) do
 
   create_table "conditions", force: :cascade do |t|
     t.date "condition_date"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_02_09_051337) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
