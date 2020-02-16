@@ -1,11 +1,21 @@
 class ConditionsController < ApplicationController
   before_action :set_condition, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /conditions
   # GET /conditions.json
   def index
-    @conditions = Condition.all
+    @conditions = Condition.where(user_id: current_user.id).order(condition_date: :desc)
+    # @conditions = Condition.active(current_user.id).sorted
+    graph
   end
+  
+  # def search
+  #   if params[:search]
+  #     @search = Condition.where(meal: 1)
+  #   else
+  #     @search = Condition.active(current_user.id).sorted
+  #   end
+  # end
 
   # GET /conditions/1
   # GET /conditions/1.json
@@ -60,6 +70,7 @@ class ConditionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

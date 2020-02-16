@@ -7,8 +7,8 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem "bcrypt", "3.1.12"
 gem "faker"
-gem "will_paginate"
-gem "bootstrap-will_paginate"
+gem "will_paginate", "3.2.1"
+gem "bootstrap-will_paginate", "1.0.0"
 # Use sqlite3 as the database for Active Record
 gem "bootstrap-sass", "3.3.7"
 gem 'sqlite3'
@@ -40,6 +40,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem "chartkick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
