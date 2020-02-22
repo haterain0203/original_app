@@ -4,17 +4,22 @@ class ConditionsController < ApplicationController
   # GET /conditions
   # GET /conditions.json
   def index
-    @conditions = Condition.where(user_id: current_user.id).order(condition_date: :desc)
+    # @conditions = Condition.where(user_id: current_user.id).order(condition_date: :desc)
     # @conditions = Condition.active(current_user.id).sorted
+    if !params[:search].empty?
+      @conditions = Condition.where(meal: 1)
+    else
+      @conditions = Condition.active(current_user.id).sorted
+    end
     graph
   end
   
   # def search
-  #   if params[:search]
-  #     @search = Condition.where(meal: 1)
-  #   else
-  #     @search = Condition.active(current_user.id).sorted
-  #   end
+    # if params[:search]
+    #   @search = Condition.where(meal: 1)
+    # else
+    #   @search = Condition.active(current_user.id).sorted
+    # end
   # end
 
   # GET /conditions/1
