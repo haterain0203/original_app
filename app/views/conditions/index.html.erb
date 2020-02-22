@@ -3,10 +3,10 @@
   <div class="row">
     <h1>Conditions</h1>
     
-    <p>検索</p>
+    <p>Filter</p>
       <%= form_tag(conditions_path,:method => 'get') do %>
-        <%= text_field_tag :search %>
-        <%= submit_tag 'Search', :name => nil %>
+        <%= text_field_tag :filter %>
+        <%= submit_tag 'Filter', :name => nil %>
       <% end %>
     
         <%= line_chart @output %>

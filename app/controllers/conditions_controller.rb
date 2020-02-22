@@ -6,8 +6,8 @@ class ConditionsController < ApplicationController
   def index
     # @conditions = Condition.where(user_id: current_user.id).order(condition_date: :desc)
     # @conditions = Condition.active(current_user.id).sorted
-    if !params[:search].empty?
-      @conditions = Condition.where(meal: 1)
+    if !params[:filter].nil? && !params[:filter].empty?
+      @conditions = Condition.active(current_user.id).where(meal: 1)
     else
       @conditions = Condition.active(current_user.id).sorted
     end
