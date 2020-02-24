@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <h1>Conditions</h1>
     
-    <p>Filter</p>
+      <p>Filter</p>
       <%= form_tag(conditions_path,:method => 'get') do %>
-        <%= text_field_tag :filter %>
+        <%= check_box_tag "graph_keys[]","meal" %>
+        <!--<input type="checkbox" name="graph_keys[]" id="meal" value="meal" />-->
+        <%= label_tag :meal, "meal" %>
+        <%= check_box_tag "graph_keys[]","defecation" %>
+        <%= label_tag :defecation, "defecation" %>
+        <%= check_box_tag "graph_keys[]","sleep" %>
+        <%= label_tag :sleep, "sleep" %>
+        <%= check_box_tag "graph_keys[]","alcohol" %>
+        <%= label_tag :alcohol, "alcohol" %>
+        <%= check_box_tag "graph_keys[]","defecation" %>
+        <%= label_tag :exercise, "exercise" %>
+        <%= check_box_tag "graph_keys[]","exercise" %>
+        <%= label_tag :stress, "stress" %>
+
         <%= submit_tag 'Filter', :name => nil %>
       <% end %>
-    
+      
+      <!--resetクリックでallにしたいがまだ出来ていないのになぜか思った挙動になっている・・・-->
+      <%= link_to 'Reset', conditions_path %>
+      
         <%= line_chart @output %>
       
       <table class = "table table-hover", style = "margin-top: 50px;">

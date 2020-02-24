@@ -4,24 +4,15 @@ class ConditionsController < ApplicationController
   # GET /conditions
   # GET /conditions.json
   def index
-    # @conditions = Condition.where(user_id: current_user.id).order(condition_date: :desc)
-    # @conditions = Condition.active(current_user.id).sorted
-    if !params[:filter].nil? && !params[:filter].empty?
-      @conditions = Condition.active(current_user.id).where(meal: 1)
-    else
-      @conditions = Condition.active(current_user.id).sorted
-    end
+    @conditions = Condition.active(current_user.id).sorted
+    unless params[:graph_keys] == ""
+      @graph_keys = params[:graph_keys]
+    end  
+    # @graph_all = params[:graph_all]
+    # binding.pry
     graph
   end
   
-  # def search
-    # if params[:search]
-    #   @search = Condition.where(meal: 1)
-    # else
-    #   @search = Condition.active(current_user.id).sorted
-    # end
-  # end
-
   # GET /conditions/1
   # GET /conditions/1.json
   def show
@@ -30,6 +21,9 @@ class ConditionsController < ApplicationController
   # GET /conditions/new
   def new
     @condition = Condition.new
+    @meal_selects = { 1 => "食べなさすぎ", 2 => "少なめ" , 3 => "適量" , 4 => "少し食べすぎた" , 5 => "食べすぎ" }
+    @defecation_selects = { 1 => "良質な排便複数あり", 2 => "良質な排便あり" , 3 => "排便あり" , 4 => "質悪な排便あり" , 5 => "排便なし" }
+    
   end
 
   # GET /conditions/1/edit
