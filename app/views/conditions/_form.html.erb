@@ -32,7 +32,7 @@
       <br>
       <% @defecation_selects.each do |key,defecation_select|  %>
         <label class="btn btn-outline-secondary" style="width:19%">
-           <%= defecation_select %> <%= form.radio_button :defecation, key.to_i, class:"center" %>
+           <%= defecation_select %> <%= form.radio_button :defecation, key.to_i, class:"d-none center" %>
         </label>
       <% end %>
     </div>
@@ -42,7 +42,7 @@
       <br>
       <% @sleep_selects.each do |key,sleep_select|  %>
         <label class="btn btn-outline-secondary" style="width:19%">
-          <%= sleep_select %> <%= form.radio_button :sleep, key.to_i %>
+          <%= sleep_select %> <%= form.radio_button :sleep, key.to_i, class:"d-none center" %>
         </label>
       <% end %>
     </div>
@@ -81,7 +81,7 @@
       <%= form.hidden_field :user_id, value:current_user.id %>
     </div>
   
-    <div class="actions mt-5">
+    <div class="actions mt-5 btn-block">
       <%= form.submit %>
     </div>
   <% end %>
