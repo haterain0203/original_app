@@ -6,7 +6,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-  color:white
+  color:gray;
 }
 
 h1 {
@@ -32,9 +32,9 @@ p {
 
 // universal 
 
-body {
-  padding-top: 30px;
-}
+// body {
+//   padding-top: 30px;
+// }
 
 section {
   overflow: auto;
@@ -203,9 +203,9 @@ input {
 }
 
 .field_with_errors {
-  @extend .has-error;
+  // @extend .has-error;
   .form-control {
-    color: $state-danger-text;
+    color: red;
   }
 }
 
@@ -216,6 +216,12 @@ input {
     margin-left: 20px;
     font-weight: normal;
   }
+}
+input[type="checkbox"]{
+  margin: 0;
+}
+.field {
+  margin-bottom: 10px;
 }
 
 #session_remember_me {
@@ -231,6 +237,8 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $gray-medium-light;
   }
 }
+
+/* conditions index */

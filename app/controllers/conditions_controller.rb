@@ -21,19 +21,29 @@ class ConditionsController < ApplicationController
   # GET /conditions/new
   def new
     @condition = Condition.new
+    #肌の状態との相関を見たいが、以下だと相関がわかりづらい？1=最悪、5=最高という流れに統一すべき？
     @meal_selects = { 1 => "食べなさすぎ", 2 => "少なめ" , 3 => "適量" , 4 => "少し食べすぎた" , 5 => "食べすぎ" }
     @defecation_selects = { 1 => "良質な排便複数あり", 2 => "良質な排便あり" , 3 => "排便あり" , 4 => "質悪な排便あり" , 5 => "排便なし" }
-    
+    @sleep_selects = { 1 => "最高の睡眠", 2 => "良質な睡眠" , 3 => "普通" , 4 => "あまり良くない" , 5 => "最悪な睡眠" } 
+    @alcohol_selects = { 1 => "飲酒なし", 2 => "缶1本未満" , 3 => "缶1本程度" , 4 => "缶2本程度" , 5 => "缶3本以上" } 
   end
 
   # GET /conditions/1/edit
   def edit
+    @meal_selects = { 1 => "食べなさすぎ", 2 => "少なめ" , 3 => "適量" , 4 => "少し食べすぎた" , 5 => "食べすぎ" }
+    @defecation_selects = { 1 => "良質な排便複数あり", 2 => "良質な排便あり" , 3 => "排便あり" , 4 => "質悪な排便あり" , 5 => "排便なし" }
+    @sleep_selects = { 1 => "最高の睡眠", 2 => "良質な睡眠" , 3 => "普通" , 4 => "あまり良くない" , 5 => "最悪な睡眠" } 
+    @alcohol_selects = { 1 => "飲酒なし", 2 => "缶1本未満" , 3 => "缶1本程度" , 4 => "缶2本程度" , 5 => "缶3本以上" } 
   end
 
   # POST /conditions
   # POST /conditions.json
   def create
     @condition = Condition.new(condition_params)
+    @meal_selects = { 1 => "食べなさすぎ", 2 => "少なめ" , 3 => "適量" , 4 => "少し食べすぎた" , 5 => "食べすぎ" }
+    @defecation_selects = { 1 => "良質な排便複数あり", 2 => "良質な排便あり" , 3 => "排便あり" , 4 => "質悪な排便あり" , 5 => "排便なし" }
+    @sleep_selects = { 1 => "最高の睡眠", 2 => "良質な睡眠" , 3 => "普通" , 4 => "あまり良くない" , 5 => "最悪な睡眠" } 
+    @alcohol_selects = { 1 => "飲酒なし", 2 => "缶1本未満" , 3 => "缶1本程度" , 4 => "缶2本程度" , 5 => "缶3本以上" } 
 
     respond_to do |format|
       if @condition.save
