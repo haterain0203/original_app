@@ -1,10 +1,12 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 // typography
 
 h1,h2,h3,h4,h5,h6 {
   line-height: 1;
+}
+
+a {
+  color:white
 }
 
 h1 {

@@ -2,30 +2,35 @@
 <div class="container mt-5">
   <div class="row">
     <h1>Conditions</h1>
-    
-      <p>Filter</p>
+  </div>  
+  <div class="row mt-2">
+      <p>< Filter ></p>
+  </div>
+  <div class="row">
       <%= form_tag(conditions_path,:method => 'get') do %>
-        <%= check_box_tag "graph_keys[]","meal" %>
-        <!--<input type="checkbox" name="graph_keys[]" id="meal" value="meal" />-->
         <%= label_tag :meal, "meal" %>
+        <%= check_box_tag "graph_keys[]","meal" %>
+        <%= label_tag :defecation, "defecation", class:"ml-2" %>
         <%= check_box_tag "graph_keys[]","defecation" %>
-        <%= label_tag :defecation, "defecation" %>
+        <%= label_tag :sleep, "sleep", class:"ml-2" %>
         <%= check_box_tag "graph_keys[]","sleep" %>
-        <%= label_tag :sleep, "sleep" %>
+        <%= label_tag :alcohol, "alcohol", class:"ml-2" %>
         <%= check_box_tag "graph_keys[]","alcohol" %>
-        <%= label_tag :alcohol, "alcohol" %>
+        <%= label_tag :exercise, "exercise", class:"ml-2" %>
         <%= check_box_tag "graph_keys[]","defecation" %>
-        <%= label_tag :exercise, "exercise" %>
+        <%= label_tag :stress, "stress", class:"ml-2" %>
         <%= check_box_tag "graph_keys[]","exercise" %>
-        <%= label_tag :stress, "stress" %>
-
+  
         <%= submit_tag 'Filter', :name => nil %>
       <% end %>
       
       <!--resetクリックでallにしたいがまだ出来ていないのになぜか思った挙動になっている・・・-->
       <%= link_to 'Reset', conditions_path %>
       
-        <%= line_chart @output %>
+  </div>
+
+  <div class="row mt-2" >
+      <%= line_chart @output %>
       
       <table class = "table table-hover", style = "margin-top: 50px;">
         <thead class = "thead-dark">

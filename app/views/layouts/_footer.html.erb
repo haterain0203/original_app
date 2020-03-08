@@ -1,13 +1,15 @@
-<footer class="footer">
-  <small>
-    The <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
-  </small>
- <nav>
-   <ul>
-     <li><%= link_to "About", about_path %></li>
-     <li><%= link_to "Contact", contact_path %></li>
-     <li><%= link_to "News", "#" %></li>
-   </ul>
- </nav>
+<footer class="footer navbar navbar-expand-lg navbar-light bg-light sticky-bottom">
+  <div class= "container">
+    <small>
+      The <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
+      by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
+    </small>
+    <nav>
+      <ul class = "nav navbar-nav navbar-right">
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
+        <li><%= link_to "News", "#" %></li>
+      </ul>
+    </nav>
+  </div>
 </footer>

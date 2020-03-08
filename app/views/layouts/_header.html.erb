@@ -1,28 +1,28 @@
-<header class = "navbar navbar-fixed-top navbar-inverse">
+<header class = "navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class = "container">
-    <%= link_to "original app", root_path, id: "logo" %>
+    <%= link_to "ORIGINAL APP", root_path, id: "logo", class:"text-white" %>
     <nav>
       <ul class = "nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Home", root_path , class:"text-white mr-3"%></li>
+        <li><%= link_to "Help", help_path , class:"text-white mr-3" %></li>
         <% if logged_in? %>
-            <li><%= link_to "Condition", conditions_path %></li>
-            <li><%= link_to "Users",users_path %></li>
+            <li><%= link_to "Condition", conditions_path, class:"text-white mr-3" %></li>
+            <li><%= link_to "Users",users_path, class:"text-white mr-3" %></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle text-white mr-3" data-toggle="dropdown">
                   Account <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "マイアカウント" , current_user %></li>
-                  <li><%= link_to "設定", edit_user_path(current_user) %></li>
+                  <li><%= link_to "マイアカウント" , current_user, class:"text-dark ml-3" %></li>
+                  <li><%= link_to "設定", edit_user_path(current_user), class:"text-dark ml-3" %></li>
                   <li class="divider"></li>
                   <li>
-                    <%= link_to "ログアウト", logout_path, method: :delete %>
+                    <%= link_to "ログアウト", logout_path, method: :delete, class:"text-dark ml-3" %>
                   </li>
                 </ul>
             </li>
         <% else %>
-            <li><%= link_to "ログイン", login_path %></li>
+            <li><%= link_to "ログイン", login_path, class:"text-white" %></li>
         <% end %>
       </ul>
     </nav>
