@@ -1,11 +1,21 @@
 <% provide(:title, @user.name)%>
 
-<div class="row">
-  <aside class="col-md-4">
-    <session class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </session>
-  </aside>
+<div class="container">
+
+  <div class="row">
+     <session class="user_info">
+        <h1>
+          <%= @user.name %>
+        </h1>
+      </session>
+  </div>
+
+  <div class="row my-3">
+    <%= link_to "New-Condition", new_condition_path, class:"btn btn-block btn-outline-secondary" %>
+  </div>
+
+  <div class="row">
+    <%= link_to "Conditions", conditions_path, class:"btn btn-block btn-outline-secondary" %>
+  </div>
+
 </div>
