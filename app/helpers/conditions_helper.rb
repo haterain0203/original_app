@@ -25,7 +25,7 @@ module ConditionsHelper
     if !@graph_keys.nil?
       @graph_keys.each do |key|
         array.push( {"name"=> key, "data"=> graph[key] } )
-      @output = array
+        @output = array
       end
     else
       graph_keys = ["meal","defecation","sleep","alcohol","exercise","stress"]

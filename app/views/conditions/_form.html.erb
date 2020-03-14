@@ -17,7 +17,7 @@
       <%= form.date_select :condition_date %>
     </div>
   
-    <div class="field">
+    <div class="field custom-radio">
       <%= form.label "食事" %>
       <br>
       <% @meal_selects.each do |key,meal_select|  %>
@@ -76,6 +76,12 @@
         </label>
       <% end %>
     </div>
+
+    <div class="field  ">
+      <%= form.label "コメント(30文字以内)" %>
+      <br>
+      <%= form.text_field :text, class: 'form-control' %>
+    </div>
   
     <div class="field">
       <%= form.hidden_field :user_id, value:current_user.id %>
@@ -85,3 +91,13 @@
       <%= form.submit %>
     </div>
   <% end %>
+
+  # <script>
+  # $(function(){
+  #     $('.btn').on('click', function(event){
+  #       # event.preventDefault();
+  #       $(this).removeClass('active');
+  #       $(this).addClass('active');
+  #     });
+  # });
+  # </script>

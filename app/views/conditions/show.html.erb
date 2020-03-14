@@ -38,5 +38,10 @@
   <%= @condition.user_id %>
 </p>
 
+<p>
+  <strong>コメント:</strong>
+  <%= @condition.text %>
+</p>
+
 <%= link_to 'Edit', edit_condition_path(@condition) %> |
 <%= link_to 'Back', conditions_path %>

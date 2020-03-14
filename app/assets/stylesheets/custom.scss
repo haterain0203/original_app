@@ -225,6 +225,15 @@ input[type="checkbox"]{
   margin-bottom: 10px;
 }
 
+// input[type="radio"]:has(label)  {
+//   background-color: #d81b60;
+//   color: #fff;
+// }
+
+.active {
+  background-color: blue;
+}
+
 #session_remember_me {
   width: auto;
   margin-left: 0px;

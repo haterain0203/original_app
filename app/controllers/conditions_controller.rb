@@ -5,6 +5,7 @@ class ConditionsController < ApplicationController
   # GET /conditions.json
   def index
     @conditions = Condition.active(current_user.id).sorted
+    # @conditions = Condition.this_month
     unless params[:graph_keys] == ""
       @graph_keys = params[:graph_keys]
     end  
@@ -89,6 +90,6 @@ class ConditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def condition_params
-      params.require(:condition).permit(:condition_date, :meal, :defecation, :sleep, :alcohol, :exercise, :stress, :user_id)
+      params.require(:condition).permit(:condition_date, :meal, :defecation, :sleep, :alcohol, :exercise, :stress, :user_id, :text)
     end
 end
