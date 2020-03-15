@@ -16,13 +16,14 @@ class Condition < ApplicationRecord
   scope :active, -> (user_id) { where(user_id: user_id) }
  
   #閲覧日-10から閲覧日までのみのconditionを取得する。
-  #しかし、閲覧日が10日以前の場合エラーになる
+  #しかし、閲覧日が10日以前の場合エラーになる  
+  # today = Date.today
+  # to = Date.new(today.year,today.mon,today.day)
+  # from = Date.new(today.year,today.mon,today.day-10)
+  # scope :this_month, -> { where(condition_date: from..to ) }
   
-  today = Date.today
-  to = Date.new(today.year,today.mon,today.day)
-  from = Date.new(today.year,today.mon,today.day-10)
-  scope :this_month, -> { where(condition_date: from..to ) }
-  
+  scope :current_month, -> { where(condition_date: Time.now.beginning_of_month..Time.now.end_of_month) }
+  scope :last_month, -> { where(condition_date: Time.now.prev_month.beginning_of_month..Time.now.prev_month.end_of_month) }
 
   #テーブルをcondition_dateの降順で表示
   scope :sorted, -> { order(condition_date: :desc) }

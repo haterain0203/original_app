@@ -1,0 +1,7 @@
+{
+    "emmet.triggerExpansionOnTab": true
+
+    # ここから記述
+    "emmet.includeLanguages": {
+        "erb": "html"
+}

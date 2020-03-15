@@ -4,15 +4,27 @@ class ConditionsController < ApplicationController
   # GET /conditions
   # GET /conditions.json
   def index
-    @conditions = Condition.active(current_user.id).this_month.sorted
-    
+    # 月別選択の処理 
+    if !params[:data].nil?
+      if params[:data] == "current"
+        @conditions = Condition.active(current_user.id).current_month.sorted
+      elsif params[:data] == "last"
+        @conditions = Condition.active(current_user.id).last_month.sorted
+      elsif params[:data] == "all"
+        @conditions = Condition.active(current_user.id).sorted
+      end
+    else
+      @conditions = Condition.active(current_user.id).current_month.sorted
+    end
+
+    # フィルター処理
     unless params[:graph_keys] == ""
       @graph_keys = params[:graph_keys]
     end  
-    # @graph_all = params[:graph_all]
-    # binding.pry
+    
     graph
   end
+
   
   # GET /conditions/1
   # GET /conditions/1.json
