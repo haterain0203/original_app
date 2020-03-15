@@ -15,11 +15,14 @@ class Condition < ApplicationRecord
   #ログインしているユーザーのconditionを取得する。
   scope :active, -> (user_id) { where(user_id: user_id) }
  
-  #閲覧日の当該月のみのconditionを取得する。
-  #特定日では絞り込むことができたが、「当年の当月のみ」にできない。「condition_date:」のうちの当年と当月をカラム条件にしたいがわからない・・・
-  require "date"
+  #閲覧日-10から閲覧日までのみのconditionを取得する。
+  #しかし、閲覧日が10日以前の場合エラーになる
+  
   today = Date.today
-  scope :this_month, -> { where(condition_date: "2020-03-14") }
+  to = Date.new(today.year,today.mon,today.day)
+  from = Date.new(today.year,today.mon,today.day-10)
+  scope :this_month, -> { where(condition_date: from..to ) }
+  
 
   #テーブルをcondition_dateの降順で表示
   scope :sorted, -> { order(condition_date: :desc) }

@@ -4,8 +4,8 @@ class ConditionsController < ApplicationController
   # GET /conditions
   # GET /conditions.json
   def index
-    @conditions = Condition.active(current_user.id).sorted
-    # @conditions = Condition.this_month
+    @conditions = Condition.active(current_user.id).this_month.sorted
+    
     unless params[:graph_keys] == ""
       @graph_keys = params[:graph_keys]
     end  
