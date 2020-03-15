@@ -12,16 +12,16 @@
       </div>
     <% end %>
   
-    <div class="field">
+    <div class="field col-md-4 px-0">
       <%= form.label :condition_date %>
-      <%= form.date_select :condition_date %>
+      <%= form.date_field :condition_date %>
     </div>
   
-    <div class="field custom-radio">
+    <div class="field">
       <%= form.label "食事" %>
       <br>
       <% @meal_selects.each do |key,meal_select|  %>
-        <label class="btn btn-outline-secondary" style="width:19%">
+        <label class="btn btn-outline-secondary col-lg-2">
            <%= meal_select %> <%= form.radio_button :meal, key.to_i, class:"d-none center"%>
         </label>
       <% end %>
