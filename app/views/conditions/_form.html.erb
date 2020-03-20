@@ -52,7 +52,7 @@
       <br>
       <% @alcohol_selects.each do |key,alcohol_select|  %>
         <label class="btn btn-outline-secondary col-lg-2 mb-1">
-          <%= alcohol_select %> <%= form.radio_button :alcohol, key.to_i %>
+          <%= alcohol_select %> <%= form.radio_button :alcohol, key.to_i, class:"d-none center" %>
         </label>
       <% end %>
     </div>
@@ -62,7 +62,7 @@
       <br>
       <% for i in 1..5 %>
         <label class="btn btn-outline-secondary col-lg-2 mb-1">
-          <%= i %><%= form.radio_button :exercise, i %>
+          <%= i %><%= form.radio_button :exercise, i, class:"d-none center"%>
         </label>
       <% end %>
     </div>
@@ -72,7 +72,7 @@
       <br>
       <% for i in 1..5 %>
         <label class="btn btn-outline-secondary col-lg-2 mb-1">
-          <%= i %><%= form.radio_button :stress, i %>
+          <%= i %><%= form.radio_button :stress, i, class:"d-none center" %>
         </label>
       <% end %>
     </div>
