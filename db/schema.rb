@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_041406) do
+ActiveRecord::Schema.define(version: 2020_03_20_102803) do
 
   create_table "conditions", force: :cascade do |t|
     t.date "condition_date"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_03_20_041406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "text"
+    t.integer "skin_condition"
   end
 
   create_table "contacts", force: :cascade do |t|

@@ -3,6 +3,7 @@ module ConditionsHelper
   def graph
     
     graph = {
+      "skin_condition" => [],
       "meal" => [],
       "defecation" => [],
       "sleep" => [],
@@ -12,6 +13,7 @@ module ConditionsHelper
     }
     
     @conditions.each do | condition |
+      graph["skin_condition"].push( [ condition.condition_date,condition.skin_condition ] )
       graph["meal"].push( [ condition.condition_date,condition.meal ] )
       graph["defecation"].push( [ condition.condition_date,condition.defecation ] )
       graph["sleep"].push( [ condition.condition_date,condition.sleep ] )
@@ -28,7 +30,7 @@ module ConditionsHelper
         @output = array
       end
     else
-      graph_keys = ["meal","defecation","sleep","alcohol","exercise","stress"]
+      graph_keys = ["skin_condition","meal","defecation","sleep","alcohol","exercise","stress"]
       graph_keys.each do |key|
         array.push( {"name"=> key, "data"=> graph[key] } )
       end

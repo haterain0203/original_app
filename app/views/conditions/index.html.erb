@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <div class="container">
   <h1>Conditions</h1>
   
@@ -27,32 +27,37 @@
   <div class="container">
     <%= form_tag(conditions_path,:method => 'get') do %>
       <div class="row form-group mt-3 center">
-        <div class="" style="width: 15%;">
+        <div class="" style="width: 12%;">
+          <%= label_tag :meal do %> 肌の調子
+          <%= check_box_tag "graph_keys[]","skin_condition" %>
+          <% end %>
+        </div>
+        <div class="" style="width: 12%;">
           <%= label_tag :meal do %> 食事
           <%= check_box_tag "graph_keys[]","meal" %>
           <% end %>
         </div>
-        <div class="" style="width: 15%;">
+        <div class="" style="width: 12%;">
           <%= label_tag :defecation do %> 排便
             <%= check_box_tag "graph_keys[]","defecation" %>
           <% end %>
         </div>
-        <div class="" style="width: 15%;">
+        <div class="" style="width: 12%;">
           <%= label_tag :sleep do %> 睡眠
             <%= check_box_tag "graph_keys[]","sleep" %>
           <% end %>
         </div>
-        <div class="" style="width: 15%;">
+        <div class="" style="width: 12%;">
           <%= label_tag :alcohol do %> 飲酒
             <%= check_box_tag "graph_keys[]","alcohol" %>
           <% end %>
         </div>
-        <div class="" style="width: 15%;">
+        <div class="" style="width: 12%;">
           <%= label_tag :exercise do %> 運動
            <%= check_box_tag "graph_keys[]","defecation" %>
           <% end %>
         </div>
-        <div class="" style="width: 15%;">
+        <div class="" style="width: 12%;">
           <%= label_tag :stress do %> ストレス
             <%= check_box_tag "graph_keys[]","exercise" %>
           <% end %>
@@ -100,6 +105,7 @@
         <thead class = "thead-dark">
           <tr>
             <th>日付</th>
+            <th>肌の調子</th>
             <th>食事</th>
             <th>排便</th>
             <th>睡眠</th>
@@ -116,6 +122,7 @@
           <% @conditions.each do |condition| %>
             <tr>
               <td><%= condition.condition_date %></td>
+              <td><%= condition.skin_condition %></td>
               <td><%= condition.meal %></td>
               <td><%= condition.defecation %></td>
               <td><%= condition.sleep %></td>

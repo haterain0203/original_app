@@ -16,6 +16,16 @@
       <%= form.label :condition_date %>
       <%= form.date_field :condition_date %>
     </div>
+
+    <div class="field btn-group-toggle" data-toggle="buttons">
+      <%= form.label "肌の調子" %>
+      <br>
+      <% @skin_condition_selects.each do |key,skin_condition_select|  %>
+        <label class="btn btn-outline-secondary col-lg-2 mb-1">
+          <%= skin_condition_select %> <%= form.radio_button :skin_condition, key.to_i, class:"d-none center"%>
+        </label>
+      <% end %>
+    </div>
   
     <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "食事" %>
