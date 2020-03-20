@@ -4,6 +4,7 @@ class Condition < ApplicationRecord
   # include ActionView::Helpers::SessionsHelper
   
   validates :condition_date, presence: true, :uniqueness => {:scope => :user_id}
+  validate :condition_date_cannot_be_in_the_future
   validates :meal, presence: true,numericality:  { only_integer: true, less_than: 6 }
   validates :defecation, presence: true,numericality:  { only_integer: true, less_than: 6 }
   validates :sleep, presence: true,numericality:  { only_integer: true, less_than: 6 }
@@ -35,5 +36,11 @@ class Condition < ApplicationRecord
     #     Condition.all
     #   end
     # end
+
+  def condition_date_cannot_be_in_the_future
+    if condition_date > Date.today
+      errors.add(:condition_date, "は未来の日付では登録できません。")
+    end
+  end
 
 end

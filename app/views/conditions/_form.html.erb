@@ -1,4 +1,4 @@
-  
+
   <%= form_with(model: condition, local: true) do |form| %>
     <% if condition.errors.any? %>
       <div id="error_explanation">
@@ -17,67 +17,67 @@
       <%= form.date_field :condition_date %>
     </div>
   
-    <div class="field">
+    <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "食事" %>
       <br>
       <% @meal_selects.each do |key,meal_select|  %>
-        <label class="btn btn-outline-secondary col-lg-2">
-           <%= meal_select %> <%= form.radio_button :meal, key.to_i, class:"d-none center"%>
+        <label class="btn btn-outline-secondary col-lg-2 mb-1">
+          <%= meal_select %> <%= form.radio_button :meal, key.to_i, class:"d-none center"%>
         </label>
       <% end %>
     </div>
   
-    <div class="field  ">
+    <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "排便" %>
       <br>
       <% @defecation_selects.each do |key,defecation_select|  %>
-        <label class="btn btn-outline-secondary" style="width:19%">
+        <label class="btn btn-outline-secondary col-lg-2 mb-1">
            <%= defecation_select %> <%= form.radio_button :defecation, key.to_i, class:"d-none center" %>
         </label>
       <% end %>
     </div>
   
-    <div class="field  ">
+    <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "睡眠" %>
       <br>
       <% @sleep_selects.each do |key,sleep_select|  %>
-        <label class="btn btn-outline-secondary" style="width:19%">
+        <label class="btn btn-outline-secondary col-lg-2 mb-1">
           <%= sleep_select %> <%= form.radio_button :sleep, key.to_i, class:"d-none center" %>
         </label>
       <% end %>
     </div>
   
-    <div class="field  ">
+    <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "飲酒" %>
       <br>
       <% @alcohol_selects.each do |key,alcohol_select|  %>
-        <label class="" style="width:19%">
+        <label class="btn btn-outline-secondary col-lg-2 mb-1">
           <%= alcohol_select %> <%= form.radio_button :alcohol, key.to_i %>
         </label>
       <% end %>
     </div>
   
-    <div class="field  ">
+    <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "運動" %>
       <br>
       <% for i in 1..5 %>
-        <label class="btn btn-outline-secondary" style="width:19%">
+        <label class="btn btn-outline-secondary col-lg-2 mb-1">
           <%= i %><%= form.radio_button :exercise, i %>
         </label>
       <% end %>
     </div>
   
-    <div class="field  ">
+    <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "ストレス" %>
       <br>
       <% for i in 1..5 %>
-        <label class="btn btn-outline-secondary" style="width:19%">
+        <label class="btn btn-outline-secondary col-lg-2 mb-1">
           <%= i %><%= form.radio_button :stress, i %>
         </label>
       <% end %>
     </div>
 
-    <div class="field  ">
+    <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "コメント(30文字以内)" %>
       <br>
       <%= form.text_field :text, class: 'form-control' %>
@@ -86,18 +86,28 @@
     <div class="field">
       <%= form.hidden_field :user_id, value:current_user.id %>
     </div>
-  
+
     <div class="actions mt-5">
       <%= form.submit class:"btn btn-warning btn-block text-white" %>
     </div>
   <% end %>
 
   <script>
-  # $(function(){
-  #     $('.btn').on('click', function(event){
-  #       # event.preventDefault();
-  #       $(this).removeClass('active');
-  #       $(this).addClass('active');
-  #     });
-  # });
-  # </script>
+  //   $(function(){
+  //     $('.btn').on('click', function(event){
+  //       event.preventDefault();
+  //        $(this).removeClass('active');
+  //        $(this).toggleClass('active');
+  //      });
+  //   });
+  // </script>
+
+<script>
+// $(function(){
+//     $('.btn-outline-secondary').on('click', function(event){
+// 		event.preventDefault();
+//         $(this).removeClass('active');
+//         $(this).toggleClass('active');
+//     });
+// });
+// </script>
