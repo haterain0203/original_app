@@ -24,34 +24,35 @@
 
     <h4 class="mt-5 text-white"><span class="bg-secondary px-3">Filter</span></h4>
 
+  <div class="container">
     <%= form_tag(conditions_path,:method => 'get') do %>
-      <div class="row form-group mt-3">
-        <div class="col-md-2">
+      <div class="row form-group mt-3 center">
+        <div class="" style="width: 15%;">
           <%= label_tag :meal do %> 食事
-            <%= check_box_tag "graph_keys[]","meal" %>
+          <%= check_box_tag "graph_keys[]","meal" %>
           <% end %>
         </div>
-        <div class="col-md-2">
+        <div class="" style="width: 15%;">
           <%= label_tag :defecation do %> 排便
             <%= check_box_tag "graph_keys[]","defecation" %>
           <% end %>
         </div>
-        <div class="col-md-2">
+        <div class="" style="width: 15%;">
           <%= label_tag :sleep do %> 睡眠
             <%= check_box_tag "graph_keys[]","sleep" %>
           <% end %>
         </div>
-        <div class="col-md-2">
+        <div class="" style="width: 15%;">
           <%= label_tag :alcohol do %> 飲酒
             <%= check_box_tag "graph_keys[]","alcohol" %>
           <% end %>
         </div>
-        <div class="col-md-2">
+        <div class="" style="width: 15%;">
           <%= label_tag :exercise do %> 運動
            <%= check_box_tag "graph_keys[]","defecation" %>
           <% end %>
         </div>
-        <div class="col-md-2">
+        <div class="" style="width: 15%;">
           <%= label_tag :stress do %> ストレス
             <%= check_box_tag "graph_keys[]","exercise" %>
           <% end %>
@@ -71,6 +72,7 @@
 
       </div>
     <% end %>
+  </div>
 
     <% if !params[:data].nil? %>
       <!--森本メンターにやってもらってしまった箇所-->

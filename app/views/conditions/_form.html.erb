@@ -51,7 +51,7 @@
       <%= form.label "飲酒" %>
       <br>
       <% @alcohol_selects.each do |key,alcohol_select|  %>
-        <label class="btn btn-outline-secondary" style="width:19%">
+        <label class="" style="width:19%">
           <%= alcohol_select %> <%= form.radio_button :alcohol, key.to_i %>
         </label>
       <% end %>
@@ -87,8 +87,8 @@
       <%= form.hidden_field :user_id, value:current_user.id %>
     </div>
   
-    <div class="actions mt-5 btn-block">
-      <%= form.submit %>
+    <div class="actions mt-5">
+      <%= form.submit class:"btn btn-warning btn-block text-white" %>
     </div>
   <% end %>
 
