@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+
+    models:
+      condition: 「コンディション」
+    attributes:
+      condition:
+        skin_condition: 「肌の調子」
+        meal: 「食事」
+        defecation: 「排便」
+        alcohol: 「アルコール」
+        sleep: 「睡眠」
+        exercise: 「運動」
+        stress: 「ストレス」

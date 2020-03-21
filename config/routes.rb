@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+  get 'posts/show'
   get 'contacts/new', to: "contacts#new"
   post 'contacts/new', to: "contacts#create"
   root 'static_pages#home'
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
   resources :users
   resources :conditions
   resources :account_activations,only:[:edit]
+  resources :posts, only: [:index, :show, :create] do
+    resources :comments, only: [:create]
+  end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

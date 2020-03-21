@@ -10,6 +10,12 @@
       </session>
   </div>
 
+  <h2>投稿内容</h2>
+  <% @user.posts.each do |post| %>
+    <a href="/posts/<%= post.id %>"><%= post.content %></a>
+    <hr>
+  <% end %>
+
   <div class="row my-3">
     <%= link_to "New-Condition", new_condition_path, class:"btn btn-block btn-outline-secondary" %>
   </div>

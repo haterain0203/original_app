@@ -77,8 +77,8 @@ class ConditionsController < ApplicationController
   def update
     respond_to do |format|
       if @condition.update(condition_params)
-        format.html { redirect_to @condition, notice: 'Condition was successfully updated.' }
-        format.json { render :show, status: :ok, location: @condition }
+        format.html { redirect_to conditions_path, notice: 'Condition was successfully updated.' }
+        format.json { render :index, status: :ok, location: @condition }
       else
         format.html { render :edit }
         format.json { render json: @condition.errors, status: :unprocessable_entity }

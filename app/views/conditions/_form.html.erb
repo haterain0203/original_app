@@ -2,7 +2,7 @@
   <%= form_with(model: condition, local: true) do |form| %>
     <% if condition.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(condition.errors.count, "error") %> prohibited this condition from being saved:</h2>
+        <h2><%= pluralize(condition.errors.count, "error") %> により保存できません。以下を参照ください。</h2>
   
         <ul>
         <% condition.errors.full_messages.each do |message| %>
