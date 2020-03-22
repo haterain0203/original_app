@@ -5,26 +5,20 @@ class ConditionsController < ApplicationController
   # GET /conditions.json
   def index
     # 月別選択の処理 
-    if !params[:data].nil?
-      if params[:data] == "current"
-        @conditions = Condition.active(current_user.id).current_month.sorted
-      elsif params[:data] == "last"
-        @conditions = Condition.active(current_user.id).last_month.sorted
-      elsif params[:data] == "all"
-        @conditions = Condition.active(current_user.id).sorted
-      end
-    else
-      @conditions = Condition.active(current_user.id).current_month.sorted
-    end
+    cal_date(params[:data])
 
     # フィルター処理
     unless params[:graph_keys] == ""
       @graph_keys = params[:graph_keys]
     end  
     
+    #graph表示の処理
     graph
   end
 
+  def index_table
+    cal_date(params[:data])
+  end
   
   # GET /conditions/1
   # GET /conditions/1.json
@@ -106,5 +100,19 @@ class ConditionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def condition_params
       params.require(:condition).permit(:condition_date,:skin_condition, :meal, :defecation, :sleep, :alcohol, :exercise, :stress, :user_id, :text)
+    end
+
+    def cal_date(data)
+      if !data.nil?
+        if data.to_i == 0
+          @conditions = Condition.active(current_user.id).current_month.sorted
+        elsif data.to_i == 1
+          @conditions = Condition.active(current_user.id).sorted
+        else
+          @conditions = Condition.active(current_user.id).where(condition_date: (Date.today + data.to_i.month).all_month).sorted
+        end
+      else
+        @conditions = Condition.active(current_user.id).current_month.sorted
+      end
     end
 end

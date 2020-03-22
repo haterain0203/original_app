@@ -26,14 +26,13 @@ class Condition < ApplicationRecord
   # from = Date.new(today.year,today.mon,today.day-10)
   # scope :this_month, -> { where(condition_date: from..to ) }
 
-  
-  # scope :current_month, -> { where(condition_date: Time.now.beginning_of_month..Time.now.end_of_month) }
-  # scope :last_month, -> { where(condition_date: Time.now.prev_month.beginning_of_month..Time.now.prev_month.end_of_month) }
+  scope :current_month, -> { where(condition_date: Time.now.beginning_of_month..Time.now.end_of_month) }
+  scope :last_month, -> { where(condition_date: Time.now.prev_month.beginning_of_month..Time.now.prev_month.end_of_month) }
   
   # 直近１５日とその前の１５日とする場合
-  now = Time.current
-  scope :current_month, -> { where(condition_date: now.ago(15.days)..now) }
-  scope :last_month, -> { where(condition_date: now.ago(30.days)..now.ago(15.days)) }
+  # now = Time.current
+  # scope :current_month, -> { where(condition_date: now.ago(15.days)..now) }
+  # scope :last_month, -> { where(condition_date: now.ago(30.days)..now.ago(15.days)) }
 
   #テーブルをcondition_dateの降順で表示
   scope :sorted, -> { order(condition_date: :desc) }

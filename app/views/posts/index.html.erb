@@ -1,18 +1,30 @@
-<h1>コメントサンプル</h1>
-<% if logged_in? %>
-  <h2>投稿する</h2>
-  <%= form_for @post do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit %>
-  <% end %>
-  <hr>
-  <h2>投稿一覧</h2>
-  <% @posts.each do |post| %>
-    <a href="/users/<%= post.user.id %>"><%= post.user.name %></a>
-    <p><a href="/posts/<%= post.id %>"><%= post.content %></a></p>
-  <% end %>
+<div class="container">
+    <h1 class="mt-3">Community</h1>
+    <% if logged_in? %>
+      <%= form_for @post do |f| %>
+        <%= f.text_area :content %>
+        <%= f.submit "投稿する", class:"btn btn-primary" %>
+      <% end %>
+      <%= link_to "投稿削除", user_path(current_user.id) %>
+      <hr>
+      <h2 class="mt-5">投稿一覧</h2>
+      <% @posts.each do |post| %>
+        <small>投稿者</small>：<a href="/users/<%= post.user.id %>"><%= post.user.name %></a>
+        <p><small>内容</small>：<a href="/posts/<%= post.id %>"><%= post.content %></a></p>
+        <small>投稿時間：<%= l post.created_at %></small>
+        <br>
+        <small class="">コメント数：<%= post.comments.count %></small>
+        <small class="ml-3"><a href="/posts/<%= post.id %>">コメントする</a></small>
+        <hr>
+      <% end %>
 
-<% else %>
-  <%= link_to "ユーザー登録", new_user_path %>
-  <%= link_to "ログイン", login_path %>
-<% end %>
+      <div class="mt-5">
+        <%= paginate @posts %>
+      </div>
+
+
+    <% else %>
+      <%= link_to "ユーザー登録", new_user_path %>
+      <%= link_to "ログイン", login_path %>
+    <% end %>
+</div>

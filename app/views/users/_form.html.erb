@@ -1,7 +1,7 @@
 <%= form_for(@user, url: yield(:url)) do |f|%>
   <%= render "shared/error_messages",object: @user %>
   
-  <%= f.label :name %>
+  <%= f.label "ニックネーム" %><span>(一覧に掲載されます)</span>
   <%= f.text_field :name, class:"form-control" %>
   
   <%= f.label :email %>

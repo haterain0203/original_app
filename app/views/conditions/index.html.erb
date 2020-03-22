@@ -1,21 +1,10 @@
+<% provide(:condition_type, "index") %>
 
 <div class="container">
-  <h1>Conditions</h1>
-  
-  <div class="row mt-3">
-    <div class="col-md-4">
-      <%= button_to '先月', {controller: 'conditions', action: 'index'}, {method: :get, params: {data: 'last'} }%>
-    </div>
-    <div class="col-md-4">
-      <%#= button_to "#{Time.now.year}年#{Time.now.mon}月", {controller: 'conditions', action: 'index'}, {method: :get, params: {data: 'current'} }%>
-      <%= button_to "今月", {controller: 'conditions', action: 'index'}, {method: :get, params: {data: 'current'} }%>
-    </div>
-    <div class="col-md-4">
-      <%= button_to 'すべて', {controller: 'conditions', action: 'index'}, {method: :get, params: {data: 'all'} }%>
-    </div>
-  </div>
-    
-  
+  <h1>Conditions graph</h1>
+
+  <%= render "date_form" %>
+
   <div class="row mt-4" >
     <div class="col-md-12">
       <%= line_chart @output %>
@@ -66,13 +55,13 @@
         <div class="col-md-12 mt-3">
         <!--森本メンターにやってもらってしまった箇所。submit押下→javascript→inputに現在のparamsを入れてコントローラーへ-->
         <input type="hidden" name="" value="" id="data_params" >
-        <%= submit_tag 'Filter', :name => nil, onClick: "data_input();", class:"btn btn-outline-primary btn-block" %>
+        <%= submit_tag 'Filter', :name => nil, onClick: "data_input();", class:"btn btn-outline-primary" %>
         <!--ここまで-->
 
         <!--resetした際に、当月のグラフに戻ってしまう。クリックされた時のparamsを送れれば対応できそうだが。。。森本メンターに教えてもらったのを流用してできた！-->
         <%#= link_to 'Reset', conditions_path, class:"btn btn-outline-secondary btn-block" %>
         <input type="hidden" name="" value="" id="data_params_reset" >
-        <%= button_to 'Reset', {controller: 'conditions', action: 'index'}, onClick: "data_reset();", class:"btn btn-outline-secondary btn-block"%>
+        <%= button_to 'Reset', {controller: 'conditions', action: 'index'}, onClick: "data_reset();", class:"btn btn-outline-secondary"%>
         </div>
 
       </div>
@@ -98,50 +87,6 @@
         }
       </script>
 
+<%= link_to 'New Condition', new_condition_path, class: "btn btn-block btn-warning text-white mt-5" %>
 
-  <div class="row mt-3" >
-    <div class="col-md-12 table-responsive">
-      <table class = "table table-sm table-hover mt-5">
-        <thead class = "thead-dark">
-          <tr class="text-center">
-            <th class="col-md-1 text-nowrap">日付</th>
-            <th class="col-md-1 text-nowrap">肌の調子</th>
-            <th class="col-md-1 text-nowrap">食事</th>
-            <th class="col-md-1 text-nowrap">排便</th>
-            <th class="col-md-1 text-nowrap">睡眠</th>
-            <th class="col-md-1 text-nowrap">飲酒</th>
-            <th class="col-md-1 text-nowrap">運動</th>
-            <th class="col-md-1 text-nowrap">ストレス</th>
-            <th class="col-md-1 text-nowrap">User</th>
-            <th class="col-md-1 text-nowrap">コメント</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-      
-        <tbody>
-          <% @conditions.each do |condition| %>
-            <tr class="text-center">
-              <td><%= condition.condition_date %></td>
-              <td><%= condition.skin_condition %></td>
-              <td><%= condition.meal %></td>
-              <td><%= condition.defecation %></td>
-              <td><%= condition.sleep %></td>
-              <td><%= condition.alcohol %></td>
-              <td><%= condition.exercise %></td>
-              <td><%= condition.stress %></td>
-              <td><%= condition.user_id %></td>
-              <td><%= condition.text %></td>
-              <td><%= link_to 'Show', condition %></td>
-              <td><%= link_to 'Edit', edit_condition_path(condition) %></td>
-              <td><%= link_to 'Destroy', condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<br>
-
-<%= link_to 'New Condition', new_condition_path, class: "btn btn-block btn-warning text-white" %>
+<%= link_to 'Condition table', conditions_table_path, class: "btn btn-block btn-outline-secondary" %>

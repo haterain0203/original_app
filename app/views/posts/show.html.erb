@@ -1,23 +1,42 @@
-<h1>投稿詳細ページ</h1>
-<h3><%= @post.user.name %></h3>
-<h3><%= @post.content %></h3>
-<p><%= time_ago_in_words(@post.created_at) %>前の投稿</p>
 
-<h2>コメント一覧</h2>
-<% @comments.each do |c| %>
-  <div>
-    <a href="/users/<%= @post.user.id %>"><%= c.user.name %></a>
-    <%= c.content %>
-    <%= time_ago_in_words(c.created_at) %>前の投稿
-    <hr>
-  </div>
+<h1 class="mb-5">投稿詳細</h1>
+<% if logged_in? %>
+  <h5 class="mb-4">投稿者： <%= @post.user.name %></h5>
+  <h5 class="mb-4">内容： <%= @post.content %></h5>
+  <small><%= l @post.created_at %></small>
+  <hr>
+
+  <h2>コメント一覧</h2>
+  <% @comments.each do |c| %>
+    <div class="row">
+      <div class="mb-3 col-10">
+        <a href="/users/<%= @post.user.id %>"><%= c.user.name %></a>
+        <span class="ml-3"><%= c.content %></span>
+        <br>
+        <small class="ml-3"><%= l @post.created_at %></small>
+      </div>
+      <% if current_user.id == c.user.id %>
+        <div class="col-2">
+          <%= link_to "削除", post_comment_path(c.post.id,c.id) ,method: :delete,
+                                        data: { confirm: "削除してよろしいですか?" } %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <hr class="mb-5">
+
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :post_id, value: @post.id %> 
+    <br>
+    <%= f.submit 'コメントする', class:"btn btn-primary" %>
+  <% end %>
+
+  <%= link_to "ホームへ戻る", posts_path %>
+
+<% else %>
+
+  <%= link_to "ユーザー登録", new_user_path %>
+  <%= link_to "ログイン", login_path %>
+
 <% end %>
-
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_field :content %>
-  <%= f.hidden_field :post_id, value: @post.id %> 
-  <br>
-  <%= f.submit 'コメントする' %>
-<% end %>
-
-<%= link_to "ホームへ戻る", posts_path %>

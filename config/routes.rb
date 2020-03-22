@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   get "/login", to:'sessions#new'
   post "/login", to:"sessions#create"
   delete "/logout", to:"sessions#destroy"
+  get "/conditions_table", to:"conditions#index_table"
   # get "/conditions/filter", to: "conditions#filter"
   
   resources :users
   resources :conditions
   resources :account_activations,only:[:edit]
-  resources :posts, only: [:index, :show, :create] do
-    resources :comments, only: [:create]
+  resources :posts, only: [:index, :show, :create, :destroy] do
+    resources :comments, only: [:create, :destroy]
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

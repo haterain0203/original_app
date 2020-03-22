@@ -1,0 +1,18 @@
+  <div class="row mt-3">
+    <% params[:data]=0 if params[:data].nil? %>
+    <div class="col-md-4">
+      <%= button_to '前月', {controller: 'conditions', action: yield(:condition_type)}, {method: :get, params: {data: params[:data].to_i-1 } }%>
+    </div>
+    <div class="col-md-4">
+      <%#= button_to "#{Time.now.year}年#{Time.now.mon}月", {controller: 'conditions', action: 'index'}, {method: :get, params: {data: 'current'} }%>
+      <%= button_to "今月", {controller: 'conditions', action: yield(:condition_type)}, {method: :get, params: {data: 0} }%>
+    </div>
+    <div class="col-md-4">
+      <%= button_to 'すべて', {controller: 'conditions', action: yield(:condition_type)}, {method: :get, params: {data: 1} }%>
+    </div>
+  </div>
+
+  <% if params[:data].to_i < 1%>
+    <% t = Date.today + params[:data].to_i.month %>  
+    <h3 class="mt-4 text-center"><%= t.strftime('%Y/%m') %></h3>     
+  <% end %>  
