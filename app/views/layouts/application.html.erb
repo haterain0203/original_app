@@ -7,30 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- google analytics -->
     <%= analytics_init if Rails.env.production? %> 
-    <!-- PWA ios用 -->
-      <!-- アドレスバー等のブラウザのUIを非表示 -->
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） -->
-      <meta name="apple-mobile-web-app-status-bar-style" content="black">
-      <!-- ホーム画面に表示されるアプリ名 -->
-      <meta name="apple-mobile-web-app-title" content="TAP10">
-      <!-- ホーム画面に表示されるアプリアイコン -->
-      <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-    <!-- PWA android用 -->
-      <!-- ウェブアプリマニフェストの読み込み -->
-      <link rel="manifest" href="manifest.json">
-      <!-- ServiceWorkerの登録 -->
-      <script>
-      if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('sw.js')
-            .then((reg) => {
-              console.log('Service worker registered.', reg);
-            });
-      }
-      </script>
   <link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
-
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
   <body>
     <%= render "layouts/header" %>
 
@@ -43,6 +22,9 @@
 
     <%= render "layouts/footer" %>
     <%= debug(params) if Rails.env.development? %>
-
+    <script src="https://sdk.push7.jp/v2/p7sdk.js"></script>
+    <script>
+    p7.init("d0e06f266130471594173f0c0c8b4f37");
+    </script>
     </body>
 </html>
