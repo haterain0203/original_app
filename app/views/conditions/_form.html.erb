@@ -70,9 +70,9 @@
     <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "運動" %>
       <br>
-      <% for i in 1..5 %>
+      <% @exercise_selects.each do |key,exercise_select| %>
         <label class="btn btn-outline-secondary col-lg-2 mb-1">
-          <%= i %><%= form.radio_button :exercise, i, class:"d-none center"%>
+          <%= exercise_select %><%= form.radio_button :exercise, key.to_i, class:"d-none center"%>
         </label>
       <% end %>
     </div>
@@ -80,9 +80,9 @@
     <div class="field btn-group-toggle" data-toggle="buttons">
       <%= form.label "ストレス" %>
       <br>
-      <% for i in 1..5 %>
+      <% @stress_selects.each do |key,stress_select| %>
         <label class="btn btn-outline-secondary col-lg-2 mb-1">
-          <%= i %><%= form.radio_button :stress, i, class:"d-none center" %>
+          <%= stress_select %><%= form.radio_button :stress, key.to_i, class:"d-none center" %>
         </label>
       <% end %>
     </div>

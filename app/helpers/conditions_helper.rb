@@ -30,7 +30,7 @@ module ConditionsHelper
         @output = array
       end
     else
-      graph_keys = ["skin_condition","meal","defecation","sleep","alcohol","exercise","stress"]
+      graph_keys = ["skin_condition"] #"meal","defecation","sleep","alcohol","exercise","stress"]
       graph_keys.each do |key|
         array.push( {"name"=> key, "data"=> graph[key] } )
       end
