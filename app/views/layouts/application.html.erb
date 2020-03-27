@@ -9,6 +9,7 @@
     <%= analytics_init if Rails.env.production? %> 
   <link rel="manifest" href="/manifest.json" />
   <meta name="apple-mobile-web-app-capable" content="yes">
+
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
   <script>
     var OneSignal = window.OneSignal || [];
@@ -17,7 +18,8 @@
         appId: "9a657604-dc67-45f9-beac-4ae18496665c",
       });
     });
-  </script>
+  </script>  
+  
   </head>
   <body>
     <%= render "layouts/header" %>
