@@ -7,7 +7,9 @@
 
   <div class="row mt-4" >
     <div class="col-md-12">
-      <%= line_chart @output %>
+      <%= line_chart @output,min:1, max:5, legend:true,curve:true,
+                            legend: "top",messages: {empty: "No data"},
+                            download: {background: "#ffffff"} %>
     </div> 
   </div>
 
