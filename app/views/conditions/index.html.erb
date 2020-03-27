@@ -11,9 +11,9 @@
     </div> 
   </div>
 
-    <h4 class="mt-5 text-white"><span class="bg-secondary px-3">Filter</span></h4>
+  <!--<h4 class="mt-5 text-white"><span class="bg-secondary px-3">Filter</span></h4>-->
 
-  <div class="container">
+  <div class="container mt-5">
     <%= form_tag(conditions_path,:method => 'get') do %>
       <div class="row form-group mt-3 d-flex justify-content-between">
         <div class="col-md-1 text-nowrap">
@@ -51,20 +51,21 @@
             <%= check_box_tag "graph_keys[]","exercise" %>
           <% end %>
         </div>
-
-        <div class="col-md-12 mt-3">
-        <!--森本メンターにやってもらってしまった箇所。submit押下→javascript→inputに現在のparamsを入れてコントローラーへ-->
-        <input type="hidden" name="" value="" id="data_params" >
-        <%= submit_tag 'Filter', :name => nil, onClick: "data_input();", class:"btn btn-outline-primary" %>
-        <!--ここまで-->
-
-        <!--resetした際に、当月のグラフに戻ってしまう。クリックされた時のparamsを送れれば対応できそうだが。。。森本メンターに教えてもらったのを流用してできた！-->
-        <%#= link_to 'Reset', conditions_path, class:"btn btn-outline-secondary btn-block" %>
-        <input type="hidden" name="" value="" id="data_params_reset" >
-        <%= button_to 'Reset', {controller: 'conditions', action: 'index'}, onClick: "data_reset();", class:"btn btn-outline-secondary"%>
-        </div>
-
       </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6 offset-md-3" style="display:inline-flex;">
+          <!--森本メンターにやってもらってしまった箇所。submit押下→javascript→inputに現在のparamsを入れてコントローラーへ-->
+          <input type="hidden" name="" value="" id="data_params" >
+          <%= submit_tag 'Filter', :name => nil, onClick: "data_input();", class:"btn btn-sm btn-light mx-1" %>
+          <!--ここまで-->
+
+          <!--resetした際に、当月のグラフに戻ってしまう。クリックされた時のparamsを送れれば対応できそうだが。。。森本メンターに教えてもらったのを流用してできた！-->
+          <%#= link_to 'Reset', conditions_path, class:"btn btn-outline-secondary btn-block" %>
+          <input type="hidden" name="" value="" id="data_params_reset" >
+          <%= button_to 'Reset', {controller: 'conditions', action: 'index'}, onClick: "data_reset();", class:"btn btn-sm btn-light mx-1"%>
+          </div>
+        </div>
     <% end %>
   </div>
 
@@ -87,6 +88,6 @@
         }
       </script>
 
-<%= link_to 'New Condition', new_condition_path, class: "btn btn-block btn-warning text-white mt-5" %>
+<%= link_to 'New Condition', new_condition_path, class: "btn btn-block mt-5" %>
 
-<%= link_to 'Condition table', conditions_table_path, class: "btn btn-block btn-outline-secondary" %>
+<%= link_to 'Condition table', conditions_table_path, class: "btn btn-block" %>

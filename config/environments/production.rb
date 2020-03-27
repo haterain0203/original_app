@@ -102,4 +102,7 @@ Rails.application.configure do
    authentication:       'plain',
    enable_starttls_auto:  true
   }
+
+  # トラッキングIDを記載
+  GA.tracker = "UA-162034200-1"
 end

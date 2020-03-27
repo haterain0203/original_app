@@ -5,6 +5,7 @@
     <%= render "layouts/head" %>
     <%= render "layouts/shim" %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= analytics_init if Rails.env.production? %> 
   </head>
 
   <body>

@@ -1,11 +1,14 @@
+
+
 <div class = "center jumbotron text-center">
   
-  <h1>Original App</h1>
-  <p>●●は、アトピー患者のための記録サイトです。<br>アトピー症状と生活習慣を記録することで、症状と各習慣と相関を見える化します。</p>
-  <p></p>
-  
-  <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-danger text-white mx-3" %>
-  <%= link_to "ログイン", login_path, class: "btn btn-lg btn-warning text-white mx-3" %>
+  <h1>Atopic Note</h1>
+  <p>Atopic Noteは、アトピー患者のための記録サイトです。<br>アトピー症状と生活習慣を記録することで、症状と各習慣との相関を見える化します。</p>
+
+  <div class="col-md-6 offset-md-3 mt-5">
+    <%= link_to "新規登録", signup_path, class: "btn btn-block btn-primary text-white" %>
+    <%= link_to "ログイン", login_path, class: "btn btn-block btn-warning text-white" %>
+  </div>
 
 </div>
   
@@ -49,21 +52,21 @@
 
 <div class="container">
   <div class="row">
-    <div class="card col-md-4 px-3">
+    <div class="card col-md-4">
       <img class="card-img-top  ml-3" src="assets/メモアイコン.png" alt="毎日記録をつけましょう">
       <div class="card-body">
         <h5 class="card-title text-nowrap"><u>日々の記録入力</u></h5>
         <p class="card-text">アトピー症状と日々の生活習慣について記録しましょう。毎日記録することが重要です。</p>
       </div>
     </div>
-    <div class="card col-md-4 px-3">
+    <div class="card col-md-4">
       <img class="card-img-top " src="/assets/株価グラフのアイコン.png" alt="グラフで相関確認">
       <div class="card-body">
         <h5 class="card-title text-nowrap"><u>グラフで相関確認</u></h5>
         <p class="card-text">記録をグラフで確認。アトピー症状の変化と相関があるものを把握して対策を取りましょう。</p>
       </div>
     </div>
-    <div class="card col-md-4 px-3">
+    <div class="card col-md-4">
       <img class="card-img-top " src="/assets/会話アイコン.png" alt="担当医に共有">
       <div class="card-body">
         <h5 class="card-title text-nowrap"><u>担当医に共有</u></h5>
@@ -72,12 +75,41 @@
     </div>
   </div>
 </div>
-        
-        <div class="row mt-5">
-          <div class="col-md-4">
-            <h3>サイト作者</h3>
+
+<h4 class="mt-5 text-center">他にもこんな機能あります</h4>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="card col-md-3 offset-md-3 px-3">
+      <img class="card-img-second" src="/assets/コメントのアイコンsmall.png" alt="ユーザー同士で交流">
+      <div class="card-body">
+        <h6 class="card-title text-nowrap"><u>コミュニティ</u></h6>
+        <small class="card-text">ユーザー同士で交流ができます。気になる投稿にはコメントしよう。</small>
+      </div>
+    </div>
+    <div class="card col-md-3 px-3">
+      <img class="card-img-second" src="/assets/メールのアイコンsmall.png" alt="グラフで相関確認">
+      <div class="card-body">
+        <h6 class="card-title text-nowrap"><u>サイト改善要望</u></h6>
+        <small class="card-text">こんな機能が欲しい！ここが使いづらい！最下部の「問い合わせ/改善要望」からどうぞ！</small>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+      <div class="container">
+        <div class="row mt-5 p-5">
+          <div class="col-md-12">
+            <h4>サイト作者</h4>
+            <small>30歳男性。サラリーマン。生まれつきアトピー持ち。高校/大学でかなり症状が治まったが、社会人になってから顔を中心に症状が悪化。
+                  <br>通院はもちろんのこと、病院を複数回変更し、漢方や脱ステロイドなど試行錯誤したが改善されず。
+                  現在の病院で腸の改善に取り組むこととなり、通常の薬に加えビオフェルミンを飲むようになってから症状が改善中。私の場合、腸と肌の相関が大きかったことに気づく。
+                  <br>この経験から、同じくアトピー症状に悩む方向けに、「自身の肌の調子が何と相関しているのか」を見つけてほしく、当該サイトの制作を決意。
+                  <br>プログラミング未経験サラリーマンが初めて作ったサイトですので、まだまだ不備がありますが、少しでも皆様の役に立てば幸いです。
+            </small>
           </div>
         </div>
+      </div>  
 
         <%#= link_to image_tag("rails.png", alt: "Rails logo"),  'http://rubyonrails.org/'  %>
-        
