@@ -9,6 +9,15 @@
     <%= analytics_init if Rails.env.production? %> 
   <link rel="manifest" href="/manifest.json" />
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "9a657604-dc67-45f9-beac-4ae18496665c",
+      });
+    });
+  </script>
   </head>
   <body>
     <%= render "layouts/header" %>
@@ -22,9 +31,9 @@
 
     <%= render "layouts/footer" %>
     <%= debug(params) if Rails.env.development? %>
-    <script src="https://sdk.push7.jp/v2/p7sdk.js"></script>
+    <!--<script src="https://sdk.push7.jp/v2/p7sdk.js"></script>
     <script>
     p7.init("d0e06f266130471594173f0c0c8b4f37");
-    </script>
+    </script>-->
     </body>
 </html>
