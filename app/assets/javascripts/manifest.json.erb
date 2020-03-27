@@ -6,14 +6,14 @@
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
-      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
+      "src": "<%= image_path "assets/メモアイコン.png" %>",
       "sizes": "<%= dim %>",
       "type": "image/png"
     }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
   <% end %>
   ],
   "theme_color": "#000000",
-  "background_color": "#FFFFFF",
+  "background_color": "white",
   "display": "fullscreen",
   "orientation": "portrait"
 }
