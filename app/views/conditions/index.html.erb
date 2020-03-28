@@ -59,13 +59,13 @@
           <div class="col-md-10 offset-md-1" style="display:inline-flex;">
           <!--森本メンターにやってもらってしまった箇所。submit押下→javascript→inputに現在のparamsを入れてコントローラーへ-->
           <input type="hidden" name="" value="" id="data_params" >
-          <%= submit_tag 'Filter', :name => nil, onClick: "data_input();", class:"btn btn-sm btn-light mx-1" %>
+          <%= submit_tag '相関チェック', :name => nil, onClick: "data_input();", class:"btn btn-sm btn-light mx-1" %>
           <!--ここまで-->
 
           <!--resetした際に、当月のグラフに戻ってしまう。クリックされた時のparamsを送れれば対応できそうだが。。。森本メンターに教えてもらったのを流用してできた！-->
           <%#= link_to 'Reset', conditions_path, class:"btn btn-outline-secondary btn-block" %>
           <input type="hidden" name="" value="" id="data_params_reset" >
-          <%= button_to 'Reset', {controller: 'conditions', action: 'index'}, onClick: "data_reset();", class:"btn btn-sm btn-light mx-1"%>
+          <%= button_to 'リセット', {controller: 'conditions', action: 'index'}, onClick: "data_reset();", class:"btn btn-sm btn-light mx-1"%>
           </div>
         </div>
     <% end %>
@@ -132,6 +132,7 @@
     </div>
   </div>
 
-<%= link_to 'New Condition', new_condition_path, class: "btn btn-warning btn-block text-white mt-3" %>
+
+<%= link_to '新規入力', new_condition_path, class: "btn btn-warning btn-block text-white mt-3" %>
 
 <%#= link_to 'Condition table', conditions_table_path, class: "btn btn-warning btn-block" %>

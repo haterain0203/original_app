@@ -5,6 +5,9 @@
     <nav>
       <ul class = "nav navbar-nav navbar-right">
         <li><%= link_to "問い合わせ／改善要望", contacts_new_path %></li>
+        <% if logged_in? && current_user.admin? %>
+          <li><%= link_to "要望一覧", contacts_index_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

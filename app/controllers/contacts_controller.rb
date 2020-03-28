@@ -14,6 +14,10 @@ class ContactsController < ApplicationController
     end
   end
 
+  def index
+    @contacts = Contact.page(params[:page]).per(5).sorted
+  end
+
   private
   
   def contact_params

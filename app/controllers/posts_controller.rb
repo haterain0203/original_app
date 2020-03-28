@@ -4,11 +4,13 @@ class PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).per(10).sorted
     @post = Post.new
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    @comments = @post.comments.sorted
     @comment = Comment.new
   end
 
@@ -18,7 +20,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_back(fallback_location: root_path)
     else
-      redirect_back(fallback_location: root_path)
+      @posts = Post.page(params[:page]).per(10).sorted
+      render "index"
     end
   end
 

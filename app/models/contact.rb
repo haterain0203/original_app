@@ -4,4 +4,6 @@ class Contact < ApplicationRecord
     validates :email, presence: true, length: { maximum: 255 }, 
     format: { with: VALID_EMAIL_REGEX }
     validates :message, presence: true
+
+    scope :sorted, -> { order(created_at: :desc) }
 end

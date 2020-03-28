@@ -1,0 +1,19 @@
+<% if current_user.admin? %>
+
+    <h1>問い合わせ一覧</h1>
+
+    <% @contacts.each do |contact| %>
+        <p>No：<%= contact.id %>　　<small>投稿者</small>：<%= contact.name %></p>
+        <p>
+        <p><small>投稿内容</small>：<%= contact.message %></p>
+        <p><small>投稿時間：<%= l contact.created_at %></small></p>
+        <hr>
+    <% end %>
+
+    <div class="mt-5">
+        <%= paginate @contacts %>
+    </div>
+
+<% else %>
+    <h2>このページは管理者のみ閲覧できます。</h2>
+<% end %>

@@ -59,7 +59,8 @@ class ConditionsController < ApplicationController
     @defecation_selects = { 1 => "良質な排便複数あり", 2 => "良質な排便あり" , 3 => "排便あり" , 4 => "質悪な排便あり" , 5 => "排便なし" }
     @sleep_selects = { 1 => "最高の睡眠", 2 => "良質な睡眠" , 3 => "普通" , 4 => "あまり良くない" , 5 => "最悪な睡眠" } 
     @alcohol_selects = { 1 => "飲酒なし", 2 => "缶1本未満" , 3 => "缶1本程度" , 4 => "缶2本程度" , 5 => "缶3本以上" } 
-
+    @exercise_selects = { 1 => "がっつり運動", 2 => "しっかり運動", 3 => "運動あり", 4 => "少しは動いた", 5 => "運動ゼロ"}
+    @stress_selects = { 1 => "ストレスなし", 2 => "少しあり", 3 => "あり", 4 => "結構あり", 5 => "しんどい"}
     respond_to do |format|
       if @condition.save
         format.html { redirect_to conditions_path, notice: 'Condition was successfully created.' }

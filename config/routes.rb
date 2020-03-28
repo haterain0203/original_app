@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'posts/show'
   get 'contacts/new', to: "contacts#new"
   post 'contacts/new', to: "contacts#create"
+  get "contacts/index", to: "contacts#index"
   root 'static_pages#home'
   get "/help", to: "static_pages#help"
   get "/contact", to: "static_pages#contact"
