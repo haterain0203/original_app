@@ -1,6 +1,15 @@
 class CommentsController < ApplicationController
     before_action :correct_user,   only: :destroy
 
+    def new
+        @post = Post.find(params[:id])
+        @comment = Comment.new
+        respond_to do |format|
+            format.html
+            format.js
+        end
+    end
+
     def create
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id

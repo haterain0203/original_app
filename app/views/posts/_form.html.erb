@@ -1,0 +1,12 @@
+<%= form_for [@post, @comment], remote: true do |f| %>
+    <div class="row">
+    <div class="col-md-10">
+        <%= f.text_field :content %>
+        <%= f.hidden_field :post_id, value: @post.id %> 
+    </div>
+    <br>
+    <div class="col-md-2">
+        <%= f.submit 'コメント', class:"btn btn-sm btn-primary" %>
+    </div>
+    </div>
+<% end %>

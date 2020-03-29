@@ -12,6 +12,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments.sorted
     @comment = Comment.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <h1 class="mt-3">Community</h1>
+  <h1 class="mt-3 font-weight-bold">Community</h1>
   
   <% if logged_in? %>
 
@@ -43,8 +43,12 @@
       <br>
       <br>
       <small class="">コメント数：<%= post.comments.count %></small>
-      <small class="ml-3"><a href="/posts/<%= post.id %>">コメントする</a></small>
-      
+      <!--<small class="ml-3"><a href="/posts/<%#= post.id %>">コメントする</a></small>-->
+      <!--<small class="ml-3"><%#= link_to "コメントする", posts_show_path(post.id) %></small>-->
+      <small class="ml-3"><%= link_to "コメントする", post_path(post.id), remote:true %></small>
+      <!--<div id="comment-form"></div>-->
+      <div id=<%= "comment_form#{post.id}" %>></div>
+
       <% post.comments.each do |c| %>
         <div class="row mt-1">
           <div class="col-6">
@@ -52,7 +56,7 @@
             <br>
           </div>
           <div class="col-4">
-            <span class="float-right"><small class=""><%= l c.created_at %></small></span>
+            <span class="float-right"><small><%= l c.created_at %></small></span>
             <br>
           </div>
 
