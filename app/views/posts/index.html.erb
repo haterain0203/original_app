@@ -29,23 +29,38 @@
     <h2 class="mt-5">投稿一覧</h2>
     <% @posts.each do |post| %>
       <small>投稿者</small>：<a href="/users/<%= post.user.id %>"><%= post.user.name %></a>
-      <p><small>内容</small>：<a href="/posts/<%= post.id %>"><%= post.content %></a></p>
+      <br>
+      <small>内容</small>：<a href="/posts/<%= post.id %>"><%= post.content %></a>
+      <br>
+      <% if current_user.id == post.user.id %>
+          <div class="float-right">
+            <small><%= link_to "削除", post_path(post.id) ,method: :delete,
+                                          data: { confirm: "削除してよろしいですか?" } %>
+           </small>
+          </div>
+      <% end %>
       <small>投稿時間：<%= l post.created_at %></small>
+      <br>
       <br>
       <small class="">コメント数：<%= post.comments.count %></small>
       <small class="ml-3"><a href="/posts/<%= post.id %>">コメントする</a></small>
-      <small class="">コメント：</small>
       
       <% post.comments.each do |c| %>
-        <div class="row">
-          <div class="mb-3 col-10">
-            <span class="ml-3"><%= c.content %></span>
+        <div class="row mt-1">
+          <div class="col-6">
+            <span class=""><small class=""><%= c.content %></small></span>
             <br>
           </div>
+          <div class="col-4">
+            <span class="float-right"><small class=""><%= l c.created_at %></small></span>
+            <br>
+          </div>
+
           <% if current_user.id == c.user.id %>
             <div class="col-2">
-              <%= link_to "削除", post_comment_path(c.post.id,c.id) ,method: :delete,
+              <small class="float-right"><%= link_to "削除", post_comment_path(c.post.id,c.id) ,method: :delete,
                                             data: { confirm: "削除してよろしいですか?" } %>
+              </small>
             </div>
           <% end %>
         </div>

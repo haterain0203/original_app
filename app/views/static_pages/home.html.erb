@@ -5,8 +5,8 @@
   <p>Atopic Noteは、アトピー患者のための記録サイトです。<br>アトピー症状と生活習慣を記録することで、症状と各習慣との相関を見える化します。</p>
 
   <div class="col-md-6 offset-md-3 mt-5">
-    <%= link_to "新規登録", signup_path, class: "btn btn-block btn-primary text-white" %>
-    <%= link_to "ログイン", login_path, class: "btn btn-block btn-warning text-white" %>
+    <%= link_to @register, signup_path, class: "btn btn-block btn-primary text-white #{ "disabled" if @status }" %>
+    <%= link_to @login, login_path, class: "btn btn-block btn-warning text-white #{ "disabled" if @status }" %>
   </div>
 
 </div>

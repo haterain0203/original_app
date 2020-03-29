@@ -8,12 +8,12 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).per(10)
   end
   
   def show
     @user = User.find(params[:id])
-    @posts = Post.where(user_id: params[:id]).page(params[:page])
+    @posts = Post.where(user_id: params[:id]).page(params[:page]).per(10).sorted
   end
   
   def create
