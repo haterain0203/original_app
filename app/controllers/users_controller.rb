@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = Post.where(user_id: params[:id]).page(params[:page]).per(10).sorted
+    @posts = Post.where(user_id: params[:id]).page(params[:page]).sorted
   end
   
   def create
