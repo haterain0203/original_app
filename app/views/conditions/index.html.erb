@@ -103,7 +103,7 @@
             <th class="col-md-1 text-nowrap">飲酒</th>
             <th class="col-md-1 text-nowrap">運動</th>
             <th class="col-md-1 text-nowrap">ストレス</th>
-            <th class="col-md-1 text-nowrap">User</th>
+            <!--<th class="col-md-1 text-nowrap">User</th>-->
             <th class="col-md-1 text-nowrap">コメント</th>
             <th colspan="3"></th>
           </tr>
@@ -120,7 +120,7 @@
               <td><%= condition.alcohol %></td>
               <td><%= condition.exercise %></td>
               <td><%= condition.stress %></td>
-              <td><%= condition.user_id %></td>
+              <!--<td><%#= condition.user_id %></td>-->
               <td><%= condition.text %></td>
               <td class="text-nowrap"><%= link_to '詳細', condition %></td>
               <td class="text-nowrap"><%= link_to '更新', edit_condition_path(condition) %></td>
