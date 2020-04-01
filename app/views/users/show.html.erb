@@ -31,7 +31,7 @@
       <% if current_user.id == post.user.id %>
         <div class="col-2">
           <br>
-          <small><%= link_to "削除", post, method: :delete,
+          <small class="text-nowrap"><%= link_to "削除", post, method: :delete,
                                         data: { confirm: "削除してよろしいですか?" } %></small>
         </div>
       <% end %>

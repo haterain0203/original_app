@@ -20,7 +20,7 @@
   
     <%= form_for @post do |f| %>
       <%= f.text_area :content %>
-      <%= f.submit "投稿する", class:"btn btn-primary" %>
+      <%= f.submit "投稿する", class:"btn btn-warning text-white" %>
     <% end %>
 
     <%= link_to "投稿削除", user_path(current_user.id) %>
