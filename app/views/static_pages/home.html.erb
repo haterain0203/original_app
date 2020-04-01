@@ -2,14 +2,14 @@
 <div class = "center jumbotron text-center">
   
   <h1 class="font-weight-bold">Atopic Note</h1>
-  <p>Atopic Noteは、アトピー患者のための記録サイトです。<br>アトピー症状と生活習慣を記録することで、症状と各習慣との相関を見える化します。</p>
+  <p class="text-muted">Atopic Noteは、アトピー患者のための記録サイトです。<br>アトピー症状と生活習慣を記録することで、症状と各習慣との相関を見える化します。</p>
 
   <div class="col-md-6 offset-md-3 mt-5">
-    <%= link_to @register, signup_path, class: "btn btn-block btn-primary text-white #{ "disabled" if @status }" %>
-    <%= link_to @login, login_path, class: "btn btn-block btn-warning text-white #{ "disabled" if @status }" %>
+    <%= link_to @register, signup_path, class: "btn btn-block btn-warning text-white #{ "disabled" if @status }" %>
+    <%= link_to @login, login_path, class: "btn btn-block btn-secondary text-white #{ "disabled" if @status }" %>
   </div>
-
 </div>
+
 
 <h3 class = "home-h3 text-center mt-5"><b>このサイトの使い方</b></h3>
 

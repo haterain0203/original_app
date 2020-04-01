@@ -62,7 +62,7 @@
 
           <% if current_user.id == c.user.id %>
             <div class="col-2">
-              <small class="float-right"><%= link_to "削除", post_comment_path(c.post.id,c.id) ,method: :delete,
+              <small class="float-right text-nowrap"><%= link_to "削除", post_comment_path(c.post.id,c.id) ,method: :delete,
                                             data: { confirm: "削除してよろしいですか?" } %>
               </small>
             </div>
