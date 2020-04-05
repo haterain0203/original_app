@@ -26,12 +26,6 @@ module CanCan
     include CanCan::Ability::Actions
     include CanCan::UnauthorizedMessageResolver
     include StrongParameterSupport
-    def initialize(user)
-      if user.try(:admin?)
-        can :access, :rails_admin
-        can :manage, :all
-      end
-    end
 
 
     # Check if the user has permission to perform a given action on an object.
