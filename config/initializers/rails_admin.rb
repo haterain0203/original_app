@@ -1,21 +1,21 @@
 RailsAdmin.config do |config|
 
-  # config.authenticate_with do
-  #   authenticate_or_request_with_http_basic('Site Message') do |username, password|
-  #     username == ENV["MAIL"] && password == ENV["ADMIN_KEY"]
-  #   end
-  # end
+  config.authenticate_with do
+    authenticate_or_request_with_http_basic('Site Message') do |username, password|
+      username == ENV["MAIL"] && password == ENV["ADMIN_KEY"]
+    end
+  end
 
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+  config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit

@@ -47,6 +47,7 @@ gem "rails-i18n"
 gem "kaminari"
 gem 'serviceworker-rails'
 gem "rails_admin"
+gem "cancancan"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
