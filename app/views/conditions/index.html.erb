@@ -112,7 +112,7 @@
         <tbody>
           <% @conditions.each do |condition| %>
             <tr class="text-center">
-              <td><%= condition.condition_date %></td>
+              <td class="text-nowrap"><%= condition.condition_date %></td>
               <td><%= condition.skin_condition %></td>
               <td><%= condition.meal %></td>
               <td><%= condition.defecation %></td>
@@ -121,7 +121,7 @@
               <td><%= condition.exercise %></td>
               <td><%= condition.stress %></td>
               <!--<td><%#= condition.user_id %></td>-->
-              <td><%= condition.text %></td>
+              <td class="text-nowrap"><%= condition.text %></td>
               <td class="text-nowrap"><%= link_to '詳細', condition %></td>
               <td class="text-nowrap"><%= link_to '更新', edit_condition_path(condition) %></td>
               <td class="text-nowrap"><%= link_to '削除', condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
