@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
-    @posts = Post.page(params[:page]).per(10).sorted
+    # @posts = Post.page(params[:page]).per(10).sorted
+    @posts = Post.page(params[:page]).sorted
     @post = Post.new
     @comments = @post.comments
     @comment = Comment.new
@@ -24,7 +25,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_back(fallback_location: root_path)
     else
-      @posts = Post.page(params[:page]).per(10).sorted
+      # @posts = Post.page(params[:page]).per(10).sorted
+      @posts = Post.page(params[:page]).sorted
       render "index"
     end
   end
