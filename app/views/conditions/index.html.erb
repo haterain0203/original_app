@@ -122,9 +122,9 @@
               <td><%= condition.stress %></td>
               <!--<td><%#= condition.user_id %></td>-->
               <td class="text-nowrap"><%= condition.text %></td>
-              <td class="text-nowrap"><%= link_to '詳細', condition %></td>
-              <td class="text-nowrap"><%= link_to '更新', edit_condition_path(condition) %></td>
-              <td class="text-nowrap"><%= link_to '削除', condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td class="text-nowrap"><small><%= link_to '詳細', condition %></small></td>
+              <td class="text-nowrap"><small><%= link_to '更新', edit_condition_path(condition) %></small></td>
+              <td class="text-nowrap"><small><%= link_to '削除', condition, method: :delete, data: { confirm: 'Are you sure?' } %></small></td>
             </tr>
           <% end %>
         </tbody>
