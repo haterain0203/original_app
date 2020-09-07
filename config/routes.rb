@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'privacies/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'posts/index'
   get 'posts/show'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :create, :destroy] do
     resources :comments, only: [:create, :destroy, :new]
   end
+  resources :privacies, only:[:show]
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
